@@ -1,18 +1,26 @@
 import React from 'react';
+import {Header} from "./components/Header";
+import {Footer} from "./components/Footer";
+import {MainPage} from "./components/MainPage";
+import {Add} from "./elements/Add";
+import {Filter} from "./elements/Filter";
 import {Route, Routes} from "react-router";
-import {MainPage} from './components/MainPage'
-import {Filter} from './components/Filter'
-import {Add} from './components/Add'
 
 function App() {
-  return (
-      <Routes>
+    return (
+        <>
+            <Header/>
+            <div className="container">
+        <Routes>
         <Route path="/" element={<MainPage/>}>
-          <Route path="filter" element={<Filter/>}/>
-          <Route path="add" element={<Add/>}/>
+            <Route path="filter" element={<Filter/>}/>
+            <Route path="add" element={<Add/>}/>
         </Route>
-      </Routes>
-  );
+        </Routes>
+            </div>
+            <Footer/>
+        </>
+    );
 }
 
 export default App;
