@@ -16,6 +16,11 @@ const Filter = () => {
             try {
                 const res = await axios.get(`https://retoolapi.dev/geeOvB/data?id=${id}`);
                 console.log(res);
+                return (
+                    <>
+                        <div> Find object with this id </div>
+                    </>
+                );
 
             } catch (err) {
                 console.log(err);
