@@ -32,7 +32,7 @@ const ObjectAndDelete = () => {
     }
 
     return (
-        <Layout className="container">
+        <Layout style={{backgroundColor: "#bae0ff", width: "100%", maxWidth: "700px", margin: "0 auto"}}>
 
             {persons.map((person: { id: number; Job: string; City: string; Name: string; Email: string; DateCreated: Date; "Phone Number": string; }) => (
                 <div className="person_block" key={person.id} ref={delete_id}>
