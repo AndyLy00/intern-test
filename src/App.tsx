@@ -1,25 +1,21 @@
-import React from 'react';
-import {Header} from "./components/Header";
-import {Footer} from "./components/Footer";
-import {MainPage} from "./components/MainPage";
-import {Add} from "./elements/Add";
-import {Filter} from "./elements/Filter";
-import {Route, Routes} from "react-router";
+import React from "react";
+import Filter from "./components/Filter";
+import ObjectAndDelete from "./components/ObjectAndDelete";
+import Post from "./components/Post";
+
 
 function App() {
+    // const fortmatResponse = (res: { status: string | number; headers: AxiosResponseHeaders | Partial<Record<string, string> & { "set-cookie"?: string[] | undefined; }>; data: any; statusText?: string; }) => {
+    //   return JSON.stringify(res, null, 2);
+    // };
     return (
         <>
-            <Header/>
-            <div className="container">
-        <Routes>
-        <Route path="/" element={<MainPage/>}>
-            <Route path="filter" element={<Filter/>}/>
-            <Route path="add" element={<Add/>}/>
-        </Route>
-        </Routes>
-            </div>
-            <Footer/>
+            <div style={{textAlign: "center", fontSize: "30px", margin: "30px"}}>React Intern Test</div>
+            <Filter/>
+            <Post/>
+            <ObjectAndDelete/>
         </>
+
     );
 }
 
