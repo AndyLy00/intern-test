@@ -42,13 +42,13 @@ const Filter = () => {
     }
 
     return (
-        <Layout style={{backgroundColor: "#bae0ff"}}>
+        <Layout className="container">
             <div style={{margin: "0 auto"}}>
                 <input type="text" ref={get_id} className="form-control ml-2" placeholder="Id"/>
-                <Button style={{margin: "30px 30px 0", fontStyle: "italic"}} onClick={getDataById}>Get by Id</Button>
+                <Button style={{margin: "30px 30px", fontStyle: "italic"}} onClick={getDataById}>Get by Id</Button>
 
                 <input type="text" ref={get_name} className="form-control ml-2" placeholder="Name"/>
-                <Button style={{margin: "30px 30px 0", fontStyle: "italic"}} onClick={getDataByName}>Find By
+                <Button style={{margin: "30px 30px", fontStyle: "italic"}} onClick={getDataByName}>Find By
                     Name</Button>
             </div>
         </Layout>

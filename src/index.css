@@ -2,16 +2,21 @@ html {
     background-color: #91caff;
 }
 
+
 .container {
+    text-align: center;
+    background-color: #bae0ff;
+    font-size: 20px;
+}
+
+.main_container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
-    background-color: #bae0ff;
     border-style: solid;
     border-radius: 30px;
     border-color: white;
-    font-size: 20px;
+    background-color: #bae0ff;
 }
 
 .person_block {

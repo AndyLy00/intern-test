@@ -9,12 +9,12 @@ function App() {
     //   return JSON.stringify(res, null, 2);
     // };
     return (
-        <>
+        <div className="main_container">
             <div style={{textAlign: "center", fontSize: "30px", margin: "30px"}}>React Intern Test</div>
             <Filter/>
             <Post/>
             <ObjectAndDelete/>
-        </>
+        </div>
 
     );
 }

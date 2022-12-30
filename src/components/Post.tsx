@@ -1,6 +1,6 @@
 import React, {MutableRefObject, useRef, useState} from 'react';
 import {Layout, Button} from "antd";
-import apiClient from "../axios/data";
+// import apiClient from "../axios/data";
 
 const Post = () => {
     const post_name = useRef() as MutableRefObject<HTMLInputElement>;
@@ -33,7 +33,7 @@ const Post = () => {
     // }
 
     return (
-        <Layout style={{backgroundColor: "#bae0ff"}}>
+        <Layout className="container">
 
             <div className="person_block" style={{backgroundColor: "#fff0f6"}}>
                 <div style={{display: "flex"}}>
