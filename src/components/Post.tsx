@@ -1,6 +1,6 @@
 import React, {MutableRefObject, useRef, useState} from 'react';
 import {Layout, Button} from "antd";
-// import apiClient from "../axios/data";
+import apiClient from "../axios/data";
 
 const Post = () => {
     const post_name = useRef() as MutableRefObject<HTMLInputElement>;
@@ -15,22 +15,38 @@ const Post = () => {
     const [Email, setEmail] = useState<string>('');
     const [Phone, setPhone] = useState<string>('');
 
-    // async function postData() {
-    //     const postData = {
-    //         Name: post_name.current.value,
-    //         Job: post_job.current.value,
-    //         City: post_city.current.value,
-    //         Email: post_email.current.value,
-    //         "Phone Number": post_phone.current.value,
-    //     };
-    //
-    //     try {
-    //         const res = await apiClient.post("/", postData);
-    //         console.log(res);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
+    // let jsonData = {
+    //     Job: "Developer",
+    //     City: "NewYork",
+    //     Name: "Andy",
+    //     Email: "andy@gmail.com",
     // }
+
+    // function postData() {
+    //     fetch('https://retoolapi.dev/geeOvB/data', {
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         body: JSON.stringify(jsonData)
+    //     })
+    // }
+
+
+    async function postData() {
+        const postData = {
+            Name: post_name.current.value,
+            Job: post_job.current.value,
+            City: post_city.current.value,
+            Email: post_email.current.value,
+            "Phone Number": post_phone.current.value,
+        };
+
+        try {
+            const res = await apiClient.post("/", postData);
+            console.log(res);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <Layout className="container">
@@ -77,6 +93,7 @@ const Post = () => {
 
                 <Button className="close_button" style={{backgroundColor: "#d3adf7"}}
                     // onClick={() => store.registration(Name, Job, City, Email, Phone)}
+                        onClick={postData}
                 > Add Object </Button>
             </div>
         </Layout>
