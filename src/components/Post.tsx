@@ -1,6 +1,7 @@
 import React, {MutableRefObject, useRef, useState} from 'react';
 import {Layout, Button} from "antd";
 import apiClient from "../axios/data";
+import moment from "moment";
 
 const Post = () => {
     const post_name = useRef() as MutableRefObject<HTMLInputElement>;
@@ -16,7 +17,9 @@ const Post = () => {
     const [Phone, setPhone] = useState<string>('');
 
     async function postData() {
-        let today = new Date().toLocaleDateString();
+        let date = moment();
+        let today = date.format('MMM DD, YYYY h:mm a');
+
         const postData = {
             Name: post_name.current.value,
             Job: post_job.current.value,
@@ -29,7 +32,7 @@ const Post = () => {
         try {
             const res = await apiClient.post("/", postData);
             console.log(res);
-            console.log(today)
+            console.log(today);
         } catch (err) {
             console.log(err);
         }

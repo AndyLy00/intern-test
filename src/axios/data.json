@@ -132,6 +132,24 @@
       "Email": "andyly@gmail.com",
       "Phone Number": "01234567",
       "id": 21
+    },
+    {
+      "Name": "Kriss",
+      "Job": "Architect",
+      "City": "Lisabona",
+      "Email": "kriss@gmail.com",
+      "DateCreated": "1/2/2023",
+      "Phone Number": "09876543",
+      "id": 22
+    },
+    {
+      "Name": "Lilo",
+      "Job": "Economist",
+      "City": "Paris",
+      "Email": "lilo@gmail.com",
+      "DateCreated": "Jan 02, 2023 1:07 pm",
+      "Phone Number": "0156478",
+      "id": 23
     }
   ]
 }
