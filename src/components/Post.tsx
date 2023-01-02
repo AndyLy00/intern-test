@@ -16,17 +16,20 @@ const Post = () => {
     const [Phone, setPhone] = useState<string>('');
 
     async function postData() {
+        let today = new Date().toLocaleDateString();
         const postData = {
             Name: post_name.current.value,
             Job: post_job.current.value,
             City: post_city.current.value,
             Email: post_email.current.value,
+            DateCreated: today,
             "Phone Number": post_phone.current.value,
         };
 
         try {
             const res = await apiClient.post("/", postData);
             console.log(res);
+            console.log(today)
         } catch (err) {
             console.log(err);
         }

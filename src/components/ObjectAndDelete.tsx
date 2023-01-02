@@ -1,11 +1,10 @@
-import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Layout} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import apiClient from "../axios/data";
 
 const ObjectAndDelete = () => {
     const [persons, setPerson] = useState<any>([]);
-    const delete_id = useRef() as MutableRefObject<HTMLButtonElement>;
 
     const fetchData = async () => {
         const {data} = await apiClient.get("/")
@@ -16,11 +15,10 @@ const ObjectAndDelete = () => {
         fetchData().then();
     }, []);
 
-    async function deleteDataById() {
-        const id = delete_id.current.value;
-            apiClient.delete(`/` + id)
-                .then(() => console.log("Deleted"));
-        }
+    async function deleteDataById(id: any) {
+        apiClient.delete(`/` + id)
+            .then(() => console.log(`Deleted with id ${id}`));
+    }
 
     return (
         <Layout style={{backgroundColor: "#bae0ff", width: "100%", maxWidth: "700px", margin: "0 auto"}}>
@@ -38,7 +36,8 @@ const ObjectAndDelete = () => {
                         <div className="person_info"> {person.Email} </div>
                         <div className="person_info"> {person["Phone Number"]} </div>
                     </div>
-                    <Button className="close_button" ref={delete_id} value={person.id} onClick={deleteDataById}> <CloseOutlined/> </Button>
+                    <Button className="close_button" onClick={deleteDataById.bind(this, person.id)}>
+                        <CloseOutlined/> </Button>
                 </div>
             ))}
         </Layout>
