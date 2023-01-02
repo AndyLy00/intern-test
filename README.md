@@ -8,6 +8,10 @@
 
 ## 2. Open new session in terminal
 
-## 3. Start Project
+## 3. Install references
+
+### `npm i`
+
+## 4. Start Project
 
 ### `npm start`

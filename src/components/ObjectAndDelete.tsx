@@ -17,7 +17,7 @@ const ObjectAndDelete = () => {
 
     async function deleteDataById(id: any) {
         apiClient.delete(`/` + id)
-            .then(() => console.log(`Deleted with id ${id}`));
+            .then(() => fetchData());
     }
 
     return (

@@ -4,8 +4,8 @@ import ObjectAndDelete from "./components/ObjectAndDelete";
 import Post from "./components/Post";
 
 
-function App() {
 
+function App() {
     return (
         <div className="main_container">
             <div style={{textAlign: "center", fontSize: "30px", margin: "30px"}}>React Intern Test</div>
