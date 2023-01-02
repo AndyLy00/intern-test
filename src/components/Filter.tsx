@@ -1,25 +1,20 @@
 import React, {useState} from 'react';
-import axios from "axios";
 import {Button, Layout} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
+import apiClient from "../axios/data";
 
 
 const Filter = () => {
-    // const get_id = useRef() as MutableRefObject<HTMLInputElement>;
-    // const get_name = useRef() as MutableRefObject<HTMLInputElement>;
-
     const [value, setValue] = useState('');
     const [data, setData] = useState<any[]>([]);
     const [nameValue, setNameValue] = useState('');
     const [nameData, setNameData] = useState<any[]>([]);
 
-
     async function getDataById() {
         const id = value
-
         if (id) {
             try {
-                const res = await axios.get(`http://localhost:3001/data?id=${id}`);
+                const res = await apiClient.get(`?id=${id}`);
                 setData(res.data);
             } catch (err) {
                 console.log(err);
@@ -32,13 +27,8 @@ const Filter = () => {
 
         if (name) {
             try {
-                const res = await axios.get(`http://localhost:3001/data?Name=${name}`, {
-                    params: {
-                        Name: name,
-                    },
-                });
+                const res = await apiClient.get(`?Name=${name}`);
                 setNameData(res.data);
-
                 console.log(res);
             } catch (err) {
                 console.log(err);

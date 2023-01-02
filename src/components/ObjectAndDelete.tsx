@@ -2,7 +2,6 @@ import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
 import {Button, Layout} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import apiClient from "../axios/data";
-// import axios from "axios";
 
 const ObjectAndDelete = () => {
     const [persons, setPerson] = useState<any>([]);
@@ -19,14 +18,12 @@ const ObjectAndDelete = () => {
 
     async function deleteDataById() {
         const id = delete_id.current.value;
-
-            fetch(`http://localhost:3001/data/${id}`, {method: 'DELETE'})
+            apiClient.delete(`/` + id)
                 .then(() => console.log("Deleted"));
         }
 
     return (
         <Layout style={{backgroundColor: "#bae0ff", width: "100%", maxWidth: "700px", margin: "0 auto"}}>
-
             {persons.map((person: { id: number; Job: string; City: string; Name: string; Email: string; DateCreated: Date; "Phone Number": string; }) => (
                 <div className="person_block" key={person.id}>
                     <div style={{display: "flex"}}>

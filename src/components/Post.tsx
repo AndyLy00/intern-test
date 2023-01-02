@@ -76,9 +76,7 @@ const Post = () => {
                 </div>
 
                 <Button className="close_button" style={{backgroundColor: "#d3adf7"}}
-                    // onClick={() => store.registration(Name, Job, City, Email, Phone)}
-                        onClick={postData}
-                > Add Object </Button>
+                        onClick={postData}> Add Object </Button>
             </div>
         </Layout>
     );
