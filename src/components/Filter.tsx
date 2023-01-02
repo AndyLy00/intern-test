@@ -19,7 +19,7 @@ const Filter = () => {
 
         if (id) {
             try {
-                const res = await axios.get(`https://retoolapi.dev/geeOvB/data?id=${id}`);
+                const res = await axios.get(`http://localhost:3001/data?id=${id}`);
                 setData(res.data);
             } catch (err) {
                 console.log(err);
@@ -32,7 +32,7 @@ const Filter = () => {
 
         if (name) {
             try {
-                const res = await axios.get(`https://retoolapi.dev/geeOvB/data?Name=${name}`, {
+                const res = await axios.get(`http://localhost:3001/data?Name=${name}`, {
                     params: {
                         Name: name,
                     },
