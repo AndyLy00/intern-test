@@ -15,22 +15,6 @@ const Post = () => {
     const [Email, setEmail] = useState<string>('');
     const [Phone, setPhone] = useState<string>('');
 
-    // let jsonData = {
-    //     Job: "Developer",
-    //     City: "NewYork",
-    //     Name: "Andy",
-    //     Email: "andy@gmail.com",
-    // }
-
-    // function postData() {
-    //     fetch('https://retoolapi.dev/geeOvB/data', {
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         body: JSON.stringify(jsonData)
-    //     })
-    // }
-
-
     async function postData() {
         const postData = {
             Name: post_name.current.value,
