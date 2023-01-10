@@ -1,28 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Button, Layout} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import apiClient from "../axios/data";
+import {Fetch} from "../axios/Fetch";
 
 const ObjectAndDelete = () => {
-    const [persons, setPerson] = useState<any>([]);
-
-    const fetchData = async () => {
-        const {data} = await apiClient.get("/")
-        setPerson(data)
-    }
-
-    useEffect(() => {
-        fetchData().then();
-    }, []);
+    const {data} = Fetch();
 
     async function deleteDataById(id: any) {
-        apiClient.delete(`/` + id)
-            .then(() => fetchData());
+        await apiClient.delete(`/` + id);
+        window.location.reload();
     }
 
     return (
         <Layout style={{backgroundColor: "#bae0ff", width: "100%", maxWidth: "700px", margin: "0 auto"}}>
-            {persons.map((person: { id: number; Job: string; City: string; Name: string; Email: string; DateCreated: Date; "Phone Number": string; }) => (
+            {data.map((person: { id: number; Job: string; City: string; Name: string; Email: string; DateCreated: Date; "Phone Number": string; }) => (
                 <div className="person_block" key={person.id}>
                     <div style={{display: "flex"}}>
                         <div className="person_info"> {person.Name} </div>

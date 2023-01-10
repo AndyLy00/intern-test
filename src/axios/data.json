@@ -126,14 +126,6 @@
       "PhoneNumber": "555"
     },
     {
-      "Name": "AndyLy",
-      "Job": "Developer",
-      "City": "NewYork",
-      "Email": "andyly@gmail.com",
-      "Phone Number": "01234567",
-      "id": 21
-    },
-    {
       "Name": "Kriss",
       "Job": "Architect",
       "City": "Lisabona",
@@ -143,21 +135,13 @@
       "id": 22
     },
     {
-      "Name": "Lilo",
-      "Job": "Economist",
-      "City": "Paris",
-      "Email": "lilo@gmail.com",
-      "DateCreated": "Jan 02, 2023 1:07 pm",
-      "Phone Number": "0156478",
-      "id": 23
-    },
-    {
       "Name": "Nataly",
-      "Job": "Lawyer",
+      "Job": "Architect",
       "City": "London",
       "Email": "nataly@gmail.com",
-      "Phone Number": "7193740",
-      "id": 1
+      "DateCreated": "Jan 03, 2023 10:43 am",
+      "Phone Number": "7184039",
+      "id": 24
     }
   ]
 }

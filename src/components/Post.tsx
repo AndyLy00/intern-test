@@ -1,38 +1,38 @@
-import React, {MutableRefObject, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {Layout, Button} from "antd";
 import apiClient from "../axios/data";
 import moment from "moment";
 
 const Post = () => {
-    const post_name = useRef() as MutableRefObject<HTMLInputElement>;
-    const post_job = useRef() as MutableRefObject<HTMLInputElement>;
-    const post_city = useRef() as MutableRefObject<HTMLInputElement>;
-    const post_email = useRef() as MutableRefObject<HTMLInputElement>;
-    const post_phone = useRef() as MutableRefObject<HTMLInputElement>;
 
-    const [Name, setName] = useState<string>('');
-    const [Job, setJob] = useState<string>('');
-    const [City, setCity] = useState<string>('');
-    const [Email, setEmail] = useState<string>('');
-    const [Phone, setPhone] = useState<string>('');
+    const [name, setName] = useState<string>('');
+    const [job, setJob] = useState<string>('');
+    const [city, setCity] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+
+    const inputChangeHandler = (setFunction: React.Dispatch<React.SetStateAction<string>>, event: React.ChangeEvent<HTMLInputElement>) => {
+        setFunction(event.target.value)
+    }
 
     async function postData() {
         let date = moment();
         let today = date.format('MMM DD, YYYY h:mm a');
 
         const postData = {
-            Name: post_name.current.value,
-            Job: post_job.current.value,
-            City: post_city.current.value,
-            Email: post_email.current.value,
+            Name: name,
+            Job: job,
+            City: city,
+            Email: email,
             DateCreated: today,
-            "Phone Number": post_phone.current.value,
+            "Phone Number": phone,
         };
 
         try {
             const res = await apiClient.post("/", postData);
+            window.location.reload();
             console.log(res);
-            console.log(today);
+            // console.log(today);
         } catch (err) {
             console.log(err);
         }
@@ -44,41 +44,37 @@ const Post = () => {
             <div className="person_block" style={{backgroundColor: "#fff0f6"}}>
                 <div style={{display: "flex"}}>
                     <input className="person_info"
-                           onChange={e => setName(e.target.value)}
-                           value={Name}
+                        // onChange={e => setName(e.target.value)}
+                           value={name}
                            type="text"
                            placeholder='Name'
-                           ref={post_name}></input>
+                           onChange={(e) => inputChangeHandler(setName, e)}></input>
                     <input className="person_info"
-                           onChange={e => setJob(e.target.value)}
-                           value={Job}
+                           onChange={(e) => inputChangeHandler(setJob, e)}
+                           value={job}
                            type="text"
-                           placeholder='Job'
-                           ref={post_job}></input>
+                           placeholder='Job'></input>
                 </div>
 
                 <div>
                     <input className="person_info" style={{margin: "10px 10px", width: "97.5%"}}
-                           onChange={e => setCity(e.target.value)}
-                           value={City}
+                           onChange={(e) => inputChangeHandler(setCity, e)}
+                           value={city}
                            type="text"
-                           placeholder='City'
-                           ref={post_city}></input>
+                           placeholder='City'></input>
                 </div>
 
                 <div style={{display: "flex"}}>
                     <input className="person_info"
-                           onChange={e => setEmail(e.target.value)}
-                           value={Email}
+                           onChange={(e) => inputChangeHandler(setEmail, e)}
+                           value={email}
                            type="text"
-                           placeholder='Email'
-                           ref={post_email}></input>
+                           placeholder='Email'></input>
                     <input className="person_info"
-                           onChange={e => setPhone(e.target.value)}
-                           value={Phone}
+                           onChange={(e) => inputChangeHandler(setPhone, e)}
+                           value={phone}
                            type="text"
-                           placeholder='Phone'
-                           ref={post_phone}></input>
+                           placeholder='Phone'></input>
                 </div>
 
                 <Button className="close_button" style={{backgroundColor: "#d3adf7"}}
