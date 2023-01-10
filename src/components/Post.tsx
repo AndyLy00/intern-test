@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Layout, Button} from "antd";
+import {Layout, Button, Form, Input} from "antd";
 import apiClient from "../axios/data";
 import moment from "moment";
 
@@ -41,45 +41,45 @@ const Post = () => {
     return (
         <Layout className="container">
 
-            <div className="person_block" style={{backgroundColor: "#fff0f6"}}>
+            <Form className="person_block" style={{backgroundColor: "#fff0f6"}}>
                 <div style={{display: "flex"}}>
-                    <input className="person_info"
+                    <Input className="person_info"
                         // onChange={e => setName(e.target.value)}
                            value={name}
                            type="text"
                            placeholder='Name'
-                           onChange={(e) => inputChangeHandler(setName, e)}></input>
-                    <input className="person_info"
+                           onChange={(e) => inputChangeHandler(setName, e)}></Input>
+                    <Input className="person_info"
                            onChange={(e) => inputChangeHandler(setJob, e)}
                            value={job}
                            type="text"
-                           placeholder='Job'></input>
+                           placeholder='Job'></Input>
                 </div>
 
                 <div>
-                    <input className="person_info" style={{margin: "10px 10px", width: "97.5%"}}
+                    <Input className="person_info" style={{margin: "10px 10px", width: "97.5%"}}
                            onChange={(e) => inputChangeHandler(setCity, e)}
                            value={city}
                            type="text"
-                           placeholder='City'></input>
+                           placeholder='City'></Input>
                 </div>
 
                 <div style={{display: "flex"}}>
-                    <input className="person_info"
+                    <Input className="person_info"
                            onChange={(e) => inputChangeHandler(setEmail, e)}
                            value={email}
                            type="text"
-                           placeholder='Email'></input>
-                    <input className="person_info"
+                           placeholder='Email'></Input>
+                    <Input className="person_info"
                            onChange={(e) => inputChangeHandler(setPhone, e)}
                            value={phone}
                            type="text"
-                           placeholder='Phone'></input>
+                           placeholder='Phone'></Input>
                 </div>
 
                 <Button className="close_button" style={{backgroundColor: "#d3adf7"}}
                         onClick={postData}> Add Object </Button>
-            </div>
+            </Form>
         </Layout>
     );
 };
